@@ -41,7 +41,7 @@ export const CreditCard: React.FC<CreditCardProps> = ({
   return (
     <div 
       className={`
-        aspect-[1.586/1] w-full rounded-[1.2rem] md:rounded-[1.4rem] p-6 md:p-8 flex flex-col justify-between 
+        aspect-[1.586/1] w-full rounded-[1rem] md:rounded-[1.4rem] p-4 md:p-8 flex flex-col justify-between 
         shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2),0_10px_20px_-10px_rgba(0,0,0,0.1)] 
         relative overflow-hidden group transition-transform duration-500 
         will-change-transform backface-hidden
@@ -52,8 +52,8 @@ export const CreditCard: React.FC<CreditCardProps> = ({
       `}
       style={{
         boxShadow: isSilver 
-          ? '0 0 0 1px rgba(0,0,0,0.02), 0 20px 40px -15px rgba(0,0,0,0.12)' 
-          : '0 0 0 1px rgba(255,255,255,0.04), 0 20px 40px -15px rgba(0,0,0,0.4)',
+          ? '0 0 0 1px rgba(0,0,0,0.03), 0 20px 40px -15px rgba(0,0,0,0.12)' 
+          : '0 0 0 1px rgba(255,255,255,0.06), 0 20px 40px -15px rgba(0,0,0,0.4)',
         outline: '1px solid transparent'
       }}
     >
@@ -66,8 +66,8 @@ export const CreditCard: React.FC<CreditCardProps> = ({
            }} 
       />
 
-      {/* 2. Brand Watermark - Bottom Right Subtle Logo */}
-      <div className="absolute bottom-4 right-4 w-20 h-20 opacity-[0.03] grayscale pointer-events-none">
+      {/* 2. Brand Watermark */}
+      <div className="absolute bottom-3 right-3 w-10 md:w-20 h-10 md:h-20 opacity-[0.02] grayscale pointer-events-none">
         <img src={LOGO_URL} alt="" className="w-full h-full object-contain" />
       </div>
 
@@ -97,46 +97,46 @@ export const CreditCard: React.FC<CreditCardProps> = ({
       {/* Content Architecture */}
       <div className="flex justify-between items-start relative z-40">
         <div className="flex flex-col">
-          <div className="flex items-center gap-2 mb-3">
-             <img src={LOGO_URL} alt="solux" className={`w-5 h-5 object-contain ${!isSilver ? 'invert' : 'brightness-0'}`} />
-             <span className="text-[9px] md:text-[11px] uppercase font-black tracking-[0.35em] opacity-40">SOLUX</span>
+          <div className="flex items-center gap-1.5 md:gap-2 mb-1 md:mb-3">
+             <img src={LOGO_URL} alt="solux" className={`w-2.5 h-2.5 md:w-5 md:h-5 object-contain ${!isSilver ? 'invert' : 'brightness-0'}`} />
+             <span className="text-[4px] md:text-[8px] uppercase font-black tracking-[0.4em] opacity-20">SOLUX</span>
           </div>
           <div className="flex flex-col">
-            <span className="font-black text-2xl md:text-3xl tracking-tighter italic select-none leading-none">VISA</span>
-            <span className="text-[7px] md:text-[8px] font-black tracking-[0.4em] uppercase opacity-30 mt-1 select-none">Signature</span>
+            <span className="font-black text-xs md:text-xl tracking-tighter italic select-none leading-none">VISA</span>
+            <span className="text-[3px] md:text-[5px] font-black tracking-[0.4em] uppercase opacity-20 mt-0.5 select-none">Signature</span>
           </div>
         </div>
         
         {/* Refined Chip */}
-        <div className="w-11 md:w-13 h-8 md:h-10 rounded-lg bg-gradient-to-br from-[#e5e7eb] to-[#9ca3af] p-[1px] shadow-inner relative overflow-hidden">
-           <div className="w-full h-full bg-[#cbd5e1] flex flex-col gap-[2.5px] p-2 justify-center relative rounded-[inherit]">
+        <div className="w-5 md:w-13 h-3.5 md:h-10 rounded-sm md:rounded-lg bg-gradient-to-br from-[#e5e7eb] to-[#9ca3af] p-[0.5px] shadow-inner relative overflow-hidden">
+           <div className="w-full h-full bg-[#cbd5e1] flex flex-col gap-[1px] md:gap-[2.5px] p-1 md:p-2 justify-center relative rounded-[inherit]">
               <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-black/10" />
-              <div className="flex gap-[2.5px] relative z-10">
-                <div className="w-1/2 h-2 border-[0.5px] border-black/10 rounded-sm bg-black/5" />
-                <div className="w-1/2 h-2 border-[0.5px] border-black/10 rounded-sm bg-black/5" />
+              <div className="flex gap-[1px] md:gap-[2.5px] relative z-10">
+                <div className="w-1/2 h-[1.5px] md:h-2 border-[0.2px] border-black/10 rounded-[0.5px] bg-black/5" />
+                <div className="w-1/2 h-[1.5px] md:h-2 border-[0.2px] border-black/10 rounded-[0.5px] bg-black/5" />
               </div>
-              <div className="w-full h-0.5 border-[0.5px] border-black/10 rounded-sm bg-black/5 relative z-10" />
-              <div className="flex gap-[2.5px] relative z-10">
-                <div className="w-1/2 h-2 border-[0.5px] border-black/10 rounded-sm bg-black/5" />
-                <div className="w-1/2 h-2 border-[0.5px] border-black/10 rounded-sm bg-black/5" />
+              <div className="w-full h-[0.3px] md:h-0.5 border-[0.2px] border-black/10 rounded-[0.5px] bg-black/5 relative z-10" />
+              <div className="flex gap-[1px] md:gap-[2.5px] relative z-10">
+                <div className="w-1/2 h-[1.5px] md:h-2 border-[0.2px] border-black/10 rounded-[0.5px] bg-black/5" />
+                <div className="w-1/2 h-[1.5px] md:h-2 border-[0.2px] border-black/10 rounded-[0.5px] bg-black/5" />
               </div>
            </div>
         </div>
       </div>
 
       <div className="flex flex-col gap-0.5 relative z-40">
-        <p className="text-xl md:text-[24px] font-bold tracking-[0.15em] mb-2 md:mb-4 font-mono select-none opacity-80">
+        <p className="text-[8px] md:text-[15px] font-bold tracking-[0.3em] mb-1 md:mb-4 font-mono select-none opacity-80 leading-none">
           {number}
         </p>
         
         <div className="flex justify-between items-end">
           <div className="flex flex-col">
-            <span className="text-[6px] md:text-[8px] uppercase tracking-[0.2em] font-black opacity-30 mb-0.5">Valid Thru</span>
-            <span className="text-[10px] md:text-xs font-bold tracking-tight">{exp}</span>
+            <span className="text-[3.5px] md:text-[6px] uppercase tracking-[0.2em] font-black opacity-20 mb-0.5">Valid Thru</span>
+            <span className="text-[6px] md:text-[10px] font-bold tracking-tight opacity-70">{exp}</span>
           </div>
           <div className="flex flex-col items-end">
-            <span className="text-[10px] md:text-[12px] font-black uppercase tracking-[0.2em] opacity-80">{name}</span>
-            <div className="h-[2px] w-8 md:w-10 bg-current opacity-10 mt-1.5 rounded-full" />
+            <span className="text-[6px] md:text-[9px] font-black uppercase tracking-[0.35em] opacity-60 leading-none">{name}</span>
+            <div className="h-[0.5px] md:h-[1px] w-3 md:w-8 bg-current opacity-10 mt-1 md:mt-1.5 rounded-full" />
           </div>
         </div>
       </div>
