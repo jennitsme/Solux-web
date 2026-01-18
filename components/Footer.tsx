@@ -2,10 +2,16 @@
 import React, { useState } from 'react';
 import { Twitter, Disc as Discord, Send, Linkedin, Instagram, ArrowRight, Hexagon } from 'lucide-react';
 
-// Using the thumbnail endpoint for better reliability
 const LOGO_URL = "https://drive.google.com/thumbnail?id=1Az2dqZ3DOe24eRw4YFnS0NRqb2S8OkfI&sz=w500";
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onDownloadClick: () => void;
+  onDocsClick: () => void;
+  onHomeClick: () => void;
+  onProtocolClick: () => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onDownloadClick, onDocsClick, onHomeClick, onProtocolClick }) => {
   const [imageError, setImageError] = useState(false);
 
   return (
@@ -13,14 +19,17 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         {/* Final CTA */}
         <div className="text-center mb-32">
-          <h2 className="text-6xl md:text-8xl font-bold tracking-tighter mb-8">
+          <h2 className="text-6xl md:text-8xl font-bold tracking-tighter mb-8 text-black">
             Money, <br />
             <span className="text-gray-300">Forever yours.</span>
           </h2>
           <p className="text-xl md:text-2xl text-gray-400 font-light max-w-2xl mx-auto mb-12">
             Ditch the wallets, skip the exchanges, and forget the banks. Start spending your crypto wealth today.
           </p>
-          <button className="inline-flex items-center gap-4 bg-black text-white px-10 py-5 rounded-full text-xl font-bold hover:scale-105 transition-all group shadow-2xl shadow-black/20">
+          <button 
+            onClick={onDownloadClick}
+            className="inline-flex items-center gap-4 bg-black text-white px-10 py-5 rounded-full text-xl font-bold hover:scale-105 transition-all group shadow-2xl shadow-black/20"
+          >
             Download App
             <ArrowRight className="group-hover:translate-x-2 transition-transform" />
           </button>
@@ -29,7 +38,7 @@ export const Footer: React.FC = () => {
         {/* Footer Info */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 border-t border-gray-100 pt-16">
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-8">
+            <div className="flex items-center gap-3 mb-8 cursor-pointer" onClick={onHomeClick}>
               {!imageError ? (
                 <img 
                   src={LOGO_URL} 
@@ -61,18 +70,18 @@ export const Footer: React.FC = () => {
           <div>
             <h4 className="text-xs font-black uppercase tracking-widest text-black mb-8">Navigation</h4>
             <ul className="space-y-4 text-sm font-medium text-gray-500">
-              <li><a href="#" className="hover:text-black transition-colors">Docs</a></li>
-              <li><a href="#" className="hover:text-black transition-colors">Solux Manifesto</a></li>
-              <li><a href="#" className="hover:text-black transition-colors">Safety</a></li>
+              <li><button onClick={onDocsClick} className="hover:text-black transition-colors">Docs</button></li>
+              <li><button onClick={onProtocolClick} className="hover:text-black transition-colors">Protocol</button></li>
+              <li><button onClick={onHomeClick} className="hover:text-black transition-colors">Solux Manifesto</button></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-xs font-black uppercase tracking-widest text-black mb-8">Legal</h4>
             <ul className="space-y-4 text-sm font-medium text-gray-500">
-              <li><a href="#" className="hover:text-black transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-black transition-colors">ToS</a></li>
-              <li><a href="#" className="hover:text-black transition-colors">Cookie Policy</a></li>
+              <li><button className="hover:text-black transition-colors">Privacy Policy</button></li>
+              <li><button className="hover:text-black transition-colors">ToS</button></li>
+              <li><button className="hover:text-black transition-colors">Cookie Policy</button></li>
             </ul>
           </div>
         </div>

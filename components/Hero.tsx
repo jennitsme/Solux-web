@@ -7,7 +7,11 @@ import { TrendingUp, Bell, Search, Settings } from 'lucide-react';
 
 const LOGO_URL = "https://drive.google.com/thumbnail?id=1Az2dqZ3DOe24eRw4YFnS0NRqb2S8OkfI&sz=w500";
 
-export const Hero: React.FC = () => {
+interface HeroProps {
+  onDownloadClick: () => void;
+}
+
+export const Hero: React.FC<HeroProps> = ({ onDownloadClick }) => {
   const targetRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
   
@@ -81,6 +85,7 @@ export const Hero: React.FC = () => {
             <motion.button 
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.96 }}
+              onClick={onDownloadClick}
               className="px-12 py-5.5 bg-black text-white rounded-full font-bold text-lg hover:bg-zinc-800 transition-all shadow-2xl shadow-black/20"
             >
               Get Started
